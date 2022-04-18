@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}Opening Price{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<head>
+    <p></p>
+    <h2 style="font-family:Calibri;text-align:center">Opening Price of Apple shares since January 1, 2022</h2>
+</head>
+<body>
+    <div style="height:550px">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = [];
+
+        const data = {
+            labels: {{ labels | safe }},
+            datasets: [{
+                label: 'Opening Price',
+                backgroundColor: 'orange',
+                borderColor: 'orange',
+                data: {{ values | safe }},
+            }]
+        };
+
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {maintainAspectRatio: false,}
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+
+</body>
+</html>
+
+{% endblock %}

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+{% block title %}Home Page{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<head>
+    <style>
+        body {
+            background-image: url('/static/bg.jpeg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            overflow-y: hidden; /* Hide vertical scrollbar */
+            overflow-x: hidden; /* Hide horizontal scrollbar */
+        }
+    </style>
+
+    <div class="container-fluid">
+        <p></p>
+        <h1 style="text-align:center; font-family: 'Calibri'; color: white; ">Analysis of Stock Price of Apple</h1>
+    </div>
+    <style>
+            .style-t {
+                border-collapse: collapse;
+                margin: 20px 34%;
+                font-size: 0.9em;
+                font-family: sans-serif;
+                min-width: 430px;
+            }
+
+                .style-t thead tr {
+                    background-color: #008080;
+                    color: #ffffff;
+                    text-align: left;
+                }
+
+                .style-t th,
+                .style-t td {
+                    padding: 12px 50px;
+                }
+
+                .style-t tbody tr {
+                    border-bottom: 0.9px solid #dddddd;
+                    background-color:white;
+                }
+
+                    .style-t tbody tr:last-of-type {
+                        border-bottom: 2px solid #408AB5;
+                    }
+        </style>
+
+      </head>
+      <body>
+          <table class="style-t">
+              <thead>
+                  <tr>
+                      <th colspan="2">Apple Stock for the last market day April 14, 2022</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr>
+                      <td>Opening Price</td>
+                      <td>170.62000</td>
+                  </tr>
+                  <tr>
+                      <td>Closing Price</td>
+                      <td>165.28999</td>
+                  </tr>
+                  <tr>
+                      <td>High</td>
+                      <td>171.27000</td>
+                  </tr>
+                  <tr>
+                      <td>Low</td>
+                      <td>165.03999</td>
+                  </tr>
+                  <tr>
+                      <td>Volume</td>
+                      <td>75237500</td>
+                  </tr>
+              </tbody>
+          </table>
+      </body>
+
+{% endblock %}

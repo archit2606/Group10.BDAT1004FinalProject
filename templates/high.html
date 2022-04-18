@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}High and Low{% endblock %}
+{% block content %}
+
+<!DOCTYPE html>
+<head>
+    <p></p>
+    <h2 style="font-family:Times New Roman,serif;text-align:center">High and Low of Apple shares since January 1, 2022</h2>
+</head>
+<body>
+    <div style="height: 550px">
+        <canvas id="myChart"></canvas>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        const labels = [];
+
+        const data = {
+            labels: {{ labels | safe }},
+            datasets: [{
+                label: 'High',
+                backgroundColor: 'green',
+                borderColor: 'green',
+                data: {{ value1 | safe }},
+            },
+            {
+                label: 'Low',
+                backgroundColor: 'red',
+                borderColor: 'red',
+                data: {{ value2 | safe }},
+            }]
+        };
+
+
+        const config = {
+            type: 'line',
+            data: data,
+            options: {maintainAspectRatio: false,}
+        };
+    </script>
+    <script>
+        const myChart = new Chart(
+            document.getElementById('myChart'),
+            config
+        );
+    </script>
+
+
+</body>
+</html>
+
+{% endblock %}
